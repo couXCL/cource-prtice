@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.course.model.dao.CoursePriceMapper">
+    <sql id="Base_Column_List">
+        id, course_id, price
+    </sql>
+    <select id="selectAll" resultType="com.xxx.course.model.entity.CoursePrice">
+        select <include refid="Base_Column_List"/>
+        from course_price
+    </select>
+    <select id="getCoursePrice" parameterType="long" resultType="decimal">
+        select price
+        from course_price where course_id=#{courseId}
+    </select>
+</mapper>
